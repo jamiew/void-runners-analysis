@@ -5,7 +5,7 @@ stop_id=$(curl -s https://voidrunners.io/api/total-supply)
 echo "start_id=$start_id stop_id=$stop_id"
 
 # fetch our ship metadata
-mkdir ships
+mkdir -p ships
 for id in $(seq $start_id $stop_id); do
   file="ships/$id.json"
   if [ -e "$file" ]; then continue; fi
