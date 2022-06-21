@@ -1,7 +1,7 @@
 #!/bin/bash
 
 start_id=1
-stop_id=10
+stop_id=1300
 
 # fetch our ship metadata
 mkdir ships
@@ -9,6 +9,7 @@ for id in $(seq $start_id $stop_id); do
   file="ships/$id.json"
   if [ -e "$file" ]; then echo "$file already downloaded"; continue; fi
   curl -s https://voidrunners.io/api/ships/$id > "$file"
+  echo -n "."
   sleep 0.25
 done
 
